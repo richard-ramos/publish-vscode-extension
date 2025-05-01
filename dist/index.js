@@ -6440,6 +6440,12 @@ async function printAndValidatePackagedFiles(files, cwd, manifest, options) {
         }
     }
     // Print the files included in the package
+
+    console.log("TEST--------------------------------------------------------------");
+    console.log(await getPackagePath(cwd, manifest, options));
+    console.log(path.basename(await getPackagePath(cwd, manifest, options)));
+    console.log(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
+
     const printableFileStructure = await util.generateFileStructureTree(path.basename(await getPackagePath(cwd, manifest, options)), files.map(f => ({
         // File path relative to the extension root
         origin: !isInMemoryFile(f) ? f.localPath : util.vsixPathToFilePath(f.path),
